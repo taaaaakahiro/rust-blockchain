@@ -1,4 +1,4 @@
-use rust_blockchain_example::Hash;
+use crate::Hash;
 
 pub trait Hashable {
     fn bytes(&self) -> Vec<u8>;

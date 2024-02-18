@@ -1,10 +1,4 @@
-use crate::block::Block;
-use crate::block_chain::Blockchain;
-
-mod block;
-mod block_chain;
-mod hashable;
-mod transaction;
+use rust_blockchain_example::{Block, Blockchain};
 
 fn main() {
     let chain = Blockchain::new();

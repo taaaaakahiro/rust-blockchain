@@ -1,5 +1,4 @@
-use crate::hashable::Hashable;
-use rust_blockchain_example::Address;
+use crate::{Address, Hashable};
 
 #[derive(Debug)]
 pub struct Transaction {
@@ -17,9 +16,9 @@ pub struct Output {
 
 impl Hashable for Output {
     fn bytes(&self) -> Vec<u8> {
-        let bytes = vec![];
+        let mut bytes = vec![];
         // TODO: why not &self? / how does it work vec extend / how does it work as_bytes / what different between as_bytes and bytes.
-        // bytes.extend(self.to_addr.as_bytes());
+        bytes.extend(self.to_addr.as_bytes());
         // bytes.extend(&u64_bytes(&self.value));
         bytes
     }

@@ -1,7 +1,7 @@
 #[allow(unused_imports)]
 use crate::hashable::Hashable;
 use crate::transaction::Transaction;
-use rust_blockchain_example::Hash;
+use crate::Hash;
 
 #[derive(Debug)]
 pub struct Block {
