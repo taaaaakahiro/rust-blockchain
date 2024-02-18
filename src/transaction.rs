@@ -1,5 +1,5 @@
 use crate::hashable::Hashable;
-use std::process::Output;
+use rust_blockchain_example::Address;
 
 #[derive(Debug)]
 pub struct Transaction {
@@ -8,6 +8,12 @@ pub struct Transaction {
 }
 
 impl Transaction {}
+
+#[derive(Clone, Debug)]
+pub struct Output {
+    pub to_addr: Address,
+    pub value: u64,
+}
 
 impl Hashable for Output {
     fn bytes(&self) -> Vec<u8> {

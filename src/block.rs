@@ -1,13 +1,14 @@
 #[allow(unused_imports)]
 use crate::hashable::Hashable;
 use crate::transaction::Transaction;
+use rust_blockchain_example::Hash;
 
 #[derive(Debug)]
 pub struct Block {
     pub index: u32,
     pub timestamp: u64,
-    // pub hash: Hash,
-    // pub prev_block_hash: Hash,
+    pub hash: Hash,
+    pub prev_block_hash: Hash,
     pub nonce: u64,
     pub transactions: Vec<Transaction>,
     pub difficulty: u128,
@@ -19,6 +20,8 @@ impl Block {
             //todo
             index: 0,
             timestamp: 0,
+            hash: vec![],
+            prev_block_hash: vec![],
             nonce: 0,
             transactions: vec![],
             difficulty: 0,

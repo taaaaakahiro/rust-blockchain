@@ -1,18 +1,20 @@
 use crate::block::Block;
+use rust_blockchain_example::Hash;
+use std::collections::HashSet;
 
 #[derive(Debug)]
 pub struct Blockchain {
     pub blocks: Vec<Block>,
-    // pub output_hashes: HashSet<Hash>,
-    // pub unspent_outputs: HashSet<Hash>,
+    pub output_hashes: HashSet<Hash>,
+    pub unspent_outputs: HashSet<Hash>,
 }
 
 impl Blockchain {
     pub fn new() -> Self {
         Blockchain {
             blocks: vec![],
-            // output_hashes: HashSet::new(),
-            // unspent_outputs: HashSet::new(),
+            output_hashes: HashSet::new(),
+            unspent_outputs: HashSet::new(),
         }
     }
 }
