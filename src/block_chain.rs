@@ -1,5 +1,4 @@
 use crate::block::Block;
-// use crate::Hash;
 
 #[derive(Debug)]
 pub struct Blockchain {
