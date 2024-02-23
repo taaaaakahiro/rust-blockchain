@@ -1,7 +1,11 @@
 #[allow(unused_imports)]
 use crate::hashable::Hashable;
 use crate::transaction::Transaction;
-use crate::Hash;
+use crate::{difficulty_bytes_as_u128, Hash};
+
+pub fn check_difficulty(hash: &Hash, difficulty: u128) -> bool {
+    difficulty > difficulty_bytes_as_u128(hash)
+}
 
 #[derive(Debug)]
 pub struct Block {
@@ -15,21 +19,35 @@ pub struct Block {
 }
 
 impl Block {
-    pub fn new() -> Self {
+    pub fn new(
+        index: u32,
+        timestamp: u64,
+        prev_block_hash: Hash,
+        nonce: u64,
+        transactions: Vec<Transaction>,
+        difficulty: u128,
+    ) -> Self {
         Block {
-            //todo
-            index: 0,
-            timestamp: 0,
-            hash: vec![],
-            prev_block_hash: vec![],
-            nonce: 0,
-            transactions: vec![],
-            difficulty: 0,
+            index,
+            timestamp,
+            hash: vec![0; 32],
+            prev_block_hash,
+            nonce,
+            transactions,
+            difficulty,
         }
     }
-    // pub fn mine(&mut self) {
-    //     //todo
-    // }
+    pub fn mine(&mut self) {
+        // todo
+        // for nonce_attempt in 0..(u64::MAX) {
+        //     self.nonce = nonce_attempt;
+        //     let hash = self.hash();
+        //     if check_difficulty(&hash, self.difficulty) {
+        //         self.hash = hash;
+        //         return;
+        //     }
+        // }
+    }
 }
 
 impl Hashable for Block {
